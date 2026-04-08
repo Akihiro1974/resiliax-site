@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resiliax - テクノロジーで社会課題を解決</title>
+    <meta name="description" content="Resiliaxは、テクノロジーと革新的なソリューションを通じて、社会の課題解決に取り組む会社です。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; color: #333; line-height: 1.8; }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(79,172,254,0.15) 0%, transparent 60%);
+            animation: float 8s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,242,195,0.1) 0%, transparent 60%);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px; }
+        .hero h1 { font-size: 4rem; font-weight: 700; letter-spacing: 0.15em; margin-bottom: 1rem; }
+        .hero .tagline { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; font-weight: 300; }
+        .hero .cta { display: inline-block; padding: 14px 40px; border: 2px solid #fff; color: #fff; text-decoration: none; font-size: 1rem; letter-spacing: 0.1em; transition: all 0.3s; border-radius: 4px; }
+        .hero .cta:hover { background: #fff; color: #1a1a2e; }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        nav.scrolled { background: rgba(26,26,46,0.95); padding: 12px 40px; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+        nav .logo { color: #fff; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; }
+        nav .nav-links { display: flex; gap: 30px; list-style: none; }
+        nav .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.3s; }
+        nav .nav-links a:hover { color: #fff; }
+
+        /* Sections */
+        section { padding: 100px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-title { font-size: 2rem; text-align: center; margin-bottom: 1rem; color: #1a1a2e; }
+        .section-subtitle { text-align: center; color: #666; margin-bottom: 60px; font-size: 1.05rem; }
+
+        /* About */
+        .about { background: #fff; }
+        .about-text { max-width: 750px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #555; }
+        .values { display: flex; gap: 40px; margin-top: 60px; justify-content: center; flex-wrap: wrap; }
+        .value-item { text-align: center; flex: 1; min-width: 200px; max-width: 300px; }
+        .value-icon { width: 70px; height: 70px; margin: 0 auto 20px; background: linear-gradient(135deg, #0f3460, #4facfe); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; }
+        .value-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
+        .value-item p { color: #666; font-size: 0.95rem; }
+
+        /* Services */
+        .services { background: #f8f9fa; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 12px; color: #1a1a2e; }
+        .service-card p { color: #666; font-size: 0.95rem; }
+
+        /* Contact */
+        .contact { background: #1a1a2e; color: #fff; text-align: center; }
+        .contact .section-title { color: #fff; }
+        .contact .section-subtitle { color: rgba(255,255,255,0.7); }
+        .contact-info { font-size: 1.1rem; }
+        .contact-info a { color: #4facfe; text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
+        .contact-email { font-size: 1.3rem; margin-top: 20px; }
+
+        /* Footer */
+        footer { background: #111; color: rgba(255,255,255,0.5); text-align: center; padding: 30px 20px; font-size: 0.85rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .tagline { font-size: 1rem; }
+            nav .nav-links { display: none; }
+            section { padding: 70px 20px; }
+            .values { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="#" class="logo">Resiliax</a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Resiliax</h1>
+        <p class="tagline">Resilience &times; Innovation &mdash; テクノロジーで社会課題を解決する</p>
+        <a href="#about" class="cta">Learn More</a>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">Resiliaxについて</h2>
+        <p class="section-subtitle">テクノロジーと革新で、持続可能な未来を</p>
+        <p class="about-text">
+            Resiliaxは、テクノロジーと革新的なソリューションを通じて、社会の課題解決に取り組む会社です。
+            私たちは「レジリエンス（回復力）」と「イノベーション」をコアバリューとして、
+            持続可能な未来の実現を目指しています。
+        </p>
+        <div class="values">
+            <div class="value-item">
+                <div class="value-icon">R</div>
+                <h3>Resilience</h3>
+                <p>変化に強く、しなやかに適応する力を社会に提供します</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">I</div>
+                <h3>Innovation</h3>
+                <p>最先端の技術で、従来の枠を超えたソリューションを創出します</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">X</div>
+                <h3>Transformation</h3>
+                <p>社会課題をテクノロジーの力で変革し、新しい価値を生み出します</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">事業内容</h2>
+        <p class="section-subtitle">私たちは以下の分野で事業を展開しています</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="icon">&#x1f4bb;</div>
+                <h3>DXコンサルティング</h3>
+                <p>企業のデジタルトランスフォーメーションを支援し、業務効率化と競争力強化を実現します。</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">&#x1f916;</div>
+                <h3>AI / データ分析</h3>
+                <p>AIと機械学習を活用したデータ分析で、ビジネスの意思決定を高度化します。</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">&#x1f310;</div>
+                <h3>システム開発</h3>
+                <p>クラウドネイティブなシステム設計・開発で、スケーラブルなソリューションを提供します。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">お気軽にお問い合わせください</p>
+        <div class="contact-info">
+            <p class="contact-email"><a href="mailto:info@resiliax.com">info@resiliax.com</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Resiliax. All rights reserved.</p>
+</footer>
+
+<script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
