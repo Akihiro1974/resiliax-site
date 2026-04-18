@@ -1,6 +1,6 @@
 :HL["/_next/static/media/4cf2300e9c8272f7-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/css/ff81e3862e05df58.css","style"]
+:HL["/_next/static/css/89f7738824129ee5.css","style"]
 :HL["/assets/generated/hero-techboost.png","image"]
 :HL["/assets/partners/jaea-narrec-logo.png","image"]
 :HL["/assets/partners/dlab.jpg","image"]
@@ -19,4 +19,4 @@
 :HL["/assets/partners/utokyo-cho.png","image"]
 :HL["/assets/partners/naraha-sustech.png","image"]
 :HL["/assets/partners/narahamirai.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"tech-boost","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"yRrSzxABZFmxWYcENfCrO"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"tech-boost","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"FylK_a3zCu7cGO4P6E7WW"}
